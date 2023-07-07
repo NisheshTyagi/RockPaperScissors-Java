@@ -3,21 +3,24 @@ package rps;
 public class GameManager {
     public String wonDialog;
 
-    private String[] choices = {"Rock","Paper","Scissors"};
+    public String[] choices = {"Rock","Paper","Scissors"};
     GameManager(String wonDia){
     wonDialog = wonDia;
 
     }
     public String checkVictory(Player Player1,Player Player2){
 
-        if(Player1.choice == "Rock" && Player2.choice == "Scissors"){
+        if(Player1.choice.equals("Rock" )&& Player2.choice.equals("Scissors")){
             return Player1.name;
         }
-        else if(Player1.choice == "Scissors" && Player2.choice == "Paper"){
+        else if(Player1.choice.equals("Scissors") && Player2.choice.equals("Paper")){
             return Player1.name;
         }
-        else if(Player1.choice == "Paper" && Player2.choice == "Rock"){
+        else if(Player1.choice.equals("Paper") && Player2.choice.equals("Rock")){
             return Player1.name;
+        }
+        else if(Player1.choice.equals(Player2.choice) ){
+            return "Tie";
         }
         else{
             return Player2.name;
@@ -26,7 +29,13 @@ public class GameManager {
 
     }
     public void congratulate(String Winner){
-        System.out.printf(wonDialog,Winner);
+        if (Winner.equals("Tie")){
+            System.out.println("Tie!!");
+        }
+        else{
+            System.out.printf(wonDialog,Winner);
+        }
+
     }
     public void showChoices(){
         System.out.println("Choose : ");
