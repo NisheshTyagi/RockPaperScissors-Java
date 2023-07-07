@@ -8,12 +8,12 @@ public class Player {
         name = PlayerName;
     }
 
-    private String[] choices = {"Rock","Paper","Scissors"};
-    public void chooseRandom() {
+
+    public void chooseRandom(String[] choices) {
         Random rand = new Random();
         choice = choices[rand.nextInt(3)];
     }
-    public void choose(Byte number){
+    public void choose(Byte number,String[] choices){
         choice = choices[number];
     }
 
