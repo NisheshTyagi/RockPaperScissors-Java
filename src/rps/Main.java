@@ -9,9 +9,9 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
         System.out.println("Welcome to Rock paper scissors");
-        computer.chooseRandom();
+        computer.chooseRandom(game.choices);
         game.showChoices();
-        player.choose((byte) (scan.nextByte()-1));
+        player.choose((byte) (scan.nextByte()-1), game.choices);
         String winner = game.checkVictory(player,computer);
         System.out.printf("Computer : %s\n",computer.choice);
         game.congratulate(winner);
